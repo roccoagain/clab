@@ -5,16 +5,18 @@
 int unique(int x[], int len, int *p) {
   if (x == NULL || p == NULL || len <= 0) return -1;
 
+  // Count the number of unique elements in x
   int n = 0;
-
   for (int i = 0; i < len; i++) {
     int j;
     for (j = 0; j < i; j++) {
+      // If any two elements match, do not increment n
       if (x[i] == x[j]) {
         break;
       }
     }
 
+    // If the inner loop completes with no matches, x[i] is unique
     if (i == j) {
       n++;
     }
@@ -26,6 +28,7 @@ int unique(int x[], int len, int *p) {
 }
 
 int main() {
+  // Test cases
   int unique_counter;
 
   int x[] = {1, 1, 1, 2, 3, 5};

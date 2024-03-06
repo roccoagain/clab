@@ -2,10 +2,9 @@
 #include <stdio.h>
 
 int are_disjoint(int x[], int y[], int lx, int ly) {
-  if (x == NULL || y == NULL || lx <= 0 || ly <= 0) {
-    return -1;
-  }
+  if (x == NULL || y == NULL || lx <= 0 || ly <= 0) return -1;
 
+  // Check if there are any common elements
   for (int i = 0; i < lx; i++) {
     for (int j = 0; j < ly; j++) {
       if (x[i] == y[j]) {
@@ -17,6 +16,7 @@ int are_disjoint(int x[], int y[], int lx, int ly) {
 }
 
 int main() {
+  // Test cases
   int x[] = {0, 1, 2, 3};
   int y[] = {4, 5, 6};
   int lx = sizeof(x) / sizeof(x[0]);

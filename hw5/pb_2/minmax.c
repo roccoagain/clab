@@ -4,14 +4,16 @@
 int minmax(int x[], int len, int *min, int *max) {
   if (x == NULL || min == NULL || max == NULL) return -1;
 
+  // Find the minimum and maximum elements in x
   *min = 0;
   *max = 0;
-
   for (int i = 0; i < len; i++) {
+    // If there is a number less than min, update min
     if (x[i] < *min) {
       *min = x[i];
     }
 
+    // If there is a number greater than max, update max
     if (x[i] > *max) {
       *max = x[i];
     }
@@ -20,6 +22,7 @@ int minmax(int x[], int len, int *min, int *max) {
 }
 
 int main() {
+  // Test cases
   int min, max;
 
   int x[5] = {1, 100, -1, 0};
