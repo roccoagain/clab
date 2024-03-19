@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
   int m = atoi(argv[1]);
   int n = atoi(argv[2]);
 
-  // Ensure that m < n
+  // Error if m is not less than n
   if (m >= n) {
     printf("m must be less than n\n");
     return 1;
