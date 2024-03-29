@@ -7,7 +7,7 @@ find . -type f -name '*.c' -exec sh -c '
         dir=$(dirname "$c_file")
         base_name=$(basename "$c_file" .c)
         cd "$dir"
-        gcc -O2 -o "$base_name" "$base_name".c
+        gcc -Os -o "$base_name" "$base_name".c
         cd - >/dev/null
     done
 ' sh {} +
