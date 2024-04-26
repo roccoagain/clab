@@ -141,16 +141,18 @@ movie *newMovie(char *title, int release_year, char *lead_actor,
   if (title == NULL || lead_actor == NULL || lead_actress == NULL) {
     return NULL;
   }
-  // Check that year format is valid
   if (release_year < 1900 || release_year > 2030) {
     return NULL;
   }
   // Create new movie
   movie *mov = (movie *)malloc(sizeof(movie));
-  mov->title = title;
+  mov->title = (char *)malloc(strlen(title)+1);
+  strcpy(mov->title, title);
   mov->release_year = release_year;
-  mov->lead_actor = lead_actor;
-  mov->lead_actress = lead_actress;
+  mov->lead_actor = (char *)malloc(strlen(lead_actor)+1);
+  strcpy(mov->lead_actor, lead_actor);
+  mov->lead_actress = (char *)malloc(strlen(lead_actress)+1);
+  strcpy(mov->lead_actress, lead_actress);
   mov->num_ratings = 0;
   mov->average_rating = 0.0;
   return mov;
@@ -205,6 +207,10 @@ int deleteMovie(movie *mov) {
   if (mov == NULL) {
     return -1;
   }
+  free(mov->title);
+  free(mov->lead_actor);
+  free(mov->lead_actress);
   free(mov);
+
   return 0;
 }
