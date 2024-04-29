@@ -1,7 +1,8 @@
 #include <assert.h>
+#include <stddef.h>
 
 int for_factorial(int n, int *factorial) {
-  if (n < 0) {
+  if (n < 0 || !factorial) {
     return -1;
   }
 
@@ -29,4 +30,5 @@ int main() {
   assert(factorial == 1);
 
   assert(for_factorial(-1, &factorial) == -1);
+  assert(for_factorial(7, NULL) == -1);
 }

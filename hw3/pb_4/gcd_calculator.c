@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 int gcd_calculator(int a, int b, int *gcd) {
-  if (a <= 0 || b <= 0 || gcd == NULL) return -1;
+  if (a <= 0 || b <= 0 || !gcd) return -1;
 
   while (b != 0) {
     int t = b;

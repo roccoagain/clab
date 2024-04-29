@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 int power(int a, int n, int *p) {
-  if (n < 0 || p == NULL) {
+  if (n < 0 || !p) {
     return -1;
   }
 

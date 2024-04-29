@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <stddef.h>
 
 int isPrime(int num) {
   if (num <= 1) return 0;
@@ -11,7 +12,7 @@ int isPrime(int num) {
 }
 
 int primesum(int n, int *sum) {
-  if (!(n >= 1)) {
+  if (!(n >= 1) || !sum) {
     return -1;
   }
 
@@ -32,5 +33,6 @@ int main() {
   assert(primesum(11, &sum) == 0 && sum == 28);
   assert(primesum(30, &sum) == 0 && sum == 129);
   assert(primesum(-10, &sum) == -1);
+  assert(primesum(10, NULL) == -1);
   assert(primesum(2, &sum) == 0 && sum == 2);
 }
